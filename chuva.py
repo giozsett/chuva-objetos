@@ -85,9 +85,11 @@ while True:
     if evento.type == pygame.KEYDOWN:
         if evento.key == pygame.K_RIGHT:
             movimento_personagem = 5
+            direcao_personagem = 1
 
         if evento.key == pygame.K_LEFT:
             movimento_personagem = -5
+            direcao_personagem = 0
                 
 
     # Faz os elementos aparecerem na tela.
@@ -108,6 +110,13 @@ while True:
     jogador_index += 0.12
     if jogador_index >= len(jogador_parado_superficie) - 1:
         jogador_index = 0
+    
+    direcao_personagem = 0
+    if direcao_personagem == 1:
+        jogador = pygame.transform.flip(jogador_superficies[int(jogador_index)], True, False)
+    else:
+        jogador = jogador_superficies[int(jogador_index)]
+
 
     # Atualiza a tela com o conteúdo.
     pygame.display.update()
