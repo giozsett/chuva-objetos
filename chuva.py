@@ -138,9 +138,9 @@ direcao_personagem = 0
 novo_objeto_timer = pygame.USEREVENT + 1
 pygame.time.set_timer(novo_objeto_timer, 500)
 
-
 # Loop principal do jogo.
 while True:
+
     # EVENTOS
     for evento in pygame.event.get():
 
@@ -170,22 +170,24 @@ while True:
         if evento.type == novo_objeto_timer:
             adicionar_objeto()
 
-        # Faz os elementos do fundo aparecerem na tela.
-        tela.blit(plano_fundo, (0,0))
-        tela.blit(estrela_roxa, (0,0))
-        tela.blit(estrela_laranja, (0,0))
-        tela.blit(estrela_amarela, (0,0))
-        tela.blit(montanhas_fundo, (0,0))
-        tela.blit(chao, (0,0))
-        tela.blit(lua_esfera, (0,0))
-        tela.blit(pedras_flutuantes, (0,0))
+    # Faz os elementos do fundo aparecerem na tela.
+    # Os elementos devem estar fora do loop do jogo para não atrasar a atualização da tela.
+    tela.blit(plano_fundo, (0,0))
+    tela.blit(estrela_roxa, (0,0))
+    tela.blit(estrela_laranja, (0,0))
+    tela.blit(estrela_amarela, (0,0))
+    tela.blit(montanhas_fundo, (0,0))
+    tela.blit(chao, (0,0))
+    tela.blit(lua_esfera, (0,0))
+    tela.blit(pedras_flutuantes, (0,0))
 
-        # Chama a função de animação do personagem.
-        animacao_personagem()
-        movimenta_objeto()
+    # Chama a função de animação do personagem.
+    animacao_personagem()
+    movimenta_objeto()
 
-        # Atualiza a tela com o conteúdo.
-        pygame.display.update()
+    # Atualiza a tela com o conteúdo.
+    pygame.display.update()
 
-        # Define a quantidade de frames por segundo.
-        relogio.tick(60)
+    # Define a quantidade de frames por segundo.
+    relogio.tick(60)
+    
